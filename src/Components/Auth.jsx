@@ -12,8 +12,11 @@ class Auth extends Component {
 		return (
 			<div className="Main">
 				<form className="login-form">
-					<label>Enter username</label>
-					<input onChange={this.handleChange} />
+					<input
+						placeholder="Enter username"
+						onChange={this.handleChange}
+						required
+					/>
 					<button type="submit" onClick={this.handleSubmit}>
 						Log in
 					</button>

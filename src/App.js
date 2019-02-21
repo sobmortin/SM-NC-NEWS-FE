@@ -18,6 +18,7 @@ import Comments from './Components/Comments';
 import {fetchUserForLogin} from './utils/api';
 import Voter from './Components/Voter';
 import WriteArticle from './Components/WriteArticle';
+import NoMatch from './Components/NoMatch';
 
 class App extends Component {
 	state = {
@@ -30,7 +31,7 @@ class App extends Component {
 			<div className="App">
 				<Header />
 				<Nav />
-				<Sidebar user={localStorage.user} logout={this.clearUser} />
+				<Sidebar user={this.state.user} logout={this.clearUser} />
 				<Auth
 					login={this.setUser}
 					logout={this.clearUser}
@@ -56,6 +57,7 @@ class App extends Component {
 							path="article/create"
 							loggedInUser={this.state.user}
 						/>
+						<NoMatch default />
 					</Router>
 					<Footer />
 				</Auth>
