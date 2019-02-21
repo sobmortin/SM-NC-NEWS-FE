@@ -1,0 +1,13 @@
+.write-article {
+	display: grid;
+
+	justify-content: center;
+	align-content: center;
+	align-items: center;
+	overflow-y: auto;
+	overflow: scroll;
+}
+
+.article-form {
+	align-content: center;
+}

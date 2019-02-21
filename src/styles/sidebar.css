@@ -1,0 +1,46 @@
+.Sidebar {
+	grid-area: sidebar;
+	justify-content: flex;
+	align-items: top;
+	/* display: flex; */
+	grid-template: 1fr 1fr 1fr 1fr;
+	border-right-width: 1px;
+	border-right-style: solid;
+}
+
+.SideBar-items {
+	background-color: aliceblue;
+}
+.topic-table {
+	width: 100%;
+	align-self: center;
+	justify-content: center;
+	align-content: center;
+}
+.table-row-header {
+	text-align: center;
+	justify-content: center;
+	align-content: center;
+	font-weight: bold;
+	border: 1px solid #dddddd;
+	text-align: left;
+	padding: 8px;
+	width: 100%;
+}
+.table-row {
+	text-align: center;
+	justify-content: center;
+	align-content: center;
+	border: 1px solid #dddddd;
+	text-align: left;
+	padding: 8px;
+	width: 100%;
+}
+
+.table-row:hover {
+	background-color: gray;
+}
+
+/* tr:nth-child(even) {
+	background-color: #dddddd;
+} */

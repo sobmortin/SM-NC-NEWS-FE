@@ -1,0 +1,146 @@
+.App {
+	text-align: center;
+	display: grid;
+	height: 100vh;
+	width: 100vw;
+	grid-template: 1fr 0.0004fr 9fr 0.5fr / 0.75fr 3fr;
+	grid-template-areas:
+		'header header'
+		'topnav topnav'
+		'sidebar main'
+		'footer footer';
+}
+
+.Topnav {
+	grid-area: topnav;
+	display: flex;
+	justify-content: flex;
+	align-items: center;
+	border-bottom-color: #282c34;
+	font-size: 20px;
+	background-color: rgb(191, 209, 186);
+}
+
+.Topnav-Button {
+	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+		'Lucida Sans', Arial, sans-serif;
+	float: left;
+	color: #282c34;
+	text-align: center;
+	padding: 20px 50px;
+	border: 0;
+	text-decoration: gainsboro;
+	font-size: 17px;
+	outline: none;
+}
+
+.Topnav-Button:hover {
+	width: 19%;
+	transition: 1.5s;
+	background-color: rgb(106, 132, 99);
+	color: white;
+}
+
+.Main {
+	grid-area: main;
+	justify-content: center;
+	padding: 1em;
+	padding-right: 6em;
+	overflow: scroll;
+	overflow-y: auto;
+}
+
+.Header {
+	grid-area: header;
+	justify-content: center;
+	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+		'Lucida Sans', Arial, sans-serif;
+	font-size: 23px;
+	text-align: justify;
+	margin-top: 30px;
+}
+
+h1 {
+	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+		'Lucida Sans', Arial, sans-serif;
+}
+
+.sort-buttons {
+	padding: 15px;
+}
+
+.item-container {
+	grid-area: main;
+
+	width: 100%;
+	height: 100%;
+	align-items: left;
+	text-align: left;
+	display: flex;
+}
+.individual-item {
+	/* border-style: solid; */
+	width: 100%;
+	text-align: left;
+	justify-content: left;
+	margin: 20px;
+}
+.individual-item:hover {
+	/* background-image: linear-gradient(lightgray, white); */
+	/* border-bottom-style: solid; */
+	/* border-width: 0.5px;*/
+	/* margin: 5px; */
+}
+
+.comment-button {
+	align-content: center;
+}
+.comment-and-votes {
+	font-size: 12px;
+}
+
+.Banner {
+	text-align: left;
+	padding-left: 48px;
+	grid-area: header;
+	font-size: 80px;
+	font-family: 'Times New Roman', Times, serif;
+	height: 1fr;
+}
+
+.Footer {
+	grid-area: footer;
+}
+
+p {
+	margin: 0;
+}
+
+.welcome-notice {
+	align-content: right;
+	margin: 0;
+}
+
+.login-form {
+	text-align: center;
+	margin: 50px;
+}
+
+.Link {
+	color: gray;
+}
+
+button {
+	background-color: white;
+	color: black;
+	border: 2px solid #4caf50; /* Green */
+	margin: 2px;
+}
+@keyframes App-logo-spin {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
