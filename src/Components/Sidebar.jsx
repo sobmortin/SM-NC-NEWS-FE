@@ -13,12 +13,15 @@ class Sidebar extends Component {
 	}
 	render() {
 		const {topics} = this.state;
+		console.log('in sidebar', this.props.user === undefined);
+		console.log('in sidebar props', this.props);
 		return (
+			// fix the ternary statement
 			<div className="Sidebar">
-				{this.props.user.hasOwnProperty('username') ? (
+				{this.props.user ? (
 					<p className="welcome-notice">
-						Welcome {this.props.user.username}
-						<button onClick={this.props.logout}>Logout</button>
+						Welcome {this.props.user}
+						<button onClick={() => this.props.logout()}>Logout</button>
 					</p>
 				) : (
 					<p className="welcome-notice">Please Login</p>

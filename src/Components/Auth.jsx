@@ -5,7 +5,7 @@ class Auth extends Component {
 		user: {},
 	};
 	render() {
-		
+		console.log(this.props);
 		if (this.state.user === this.props.user.username) {
 			return <div>{this.props.children}</div>;
 		}

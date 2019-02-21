@@ -25,11 +25,12 @@ class App extends Component {
 	};
 
 	render() {
+		console.log(localStorage);
 		return (
 			<div className="App">
 				<Header />
 				<Nav />
-				<Sidebar user={this.state.user} logout={this.clearUser} />
+				<Sidebar user={localStorage.user} logout={this.clearUser} />
 				<Auth
 					login={this.setUser}
 					logout={this.clearUser}
@@ -62,12 +63,16 @@ class App extends Component {
 		);
 	}
 	setUser = (username) => {
+		console.log('login called');
 		return fetchUserForLogin(username).then(({data}) => {
 			this.setState({user: data.user});
+			localStorage.setItem('user', data.user.username);
 		});
 	};
 	clearUser = () => {
+		console.log('logout called');
 		this.setState({user: {}});
+		localStorage.removeItem('user');
 	};
 }
 
