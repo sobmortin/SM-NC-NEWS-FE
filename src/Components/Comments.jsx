@@ -12,7 +12,6 @@ class Comments extends Component {
 		commentDeleted: false,
 	};
 	componentDidMount() {
-		console.log(this.props);
 		return this.getCommentsForArticle(this.props.id);
 	}
 
@@ -49,7 +48,7 @@ class Comments extends Component {
 
 						return (
 							<li key={comment_id} className="Comments-item">
-								<p className="body"> {body}</p>
+								<p className="comment-body"> {body}</p>
 								<span>{author}</span> {' | '} <span>{votes}</span>
 								<p>{created_at}</p>
 								{author === username && (

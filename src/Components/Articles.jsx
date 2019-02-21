@@ -6,7 +6,6 @@ import {
 	fetchArticlesByUser,
 	fetchSortedArticles,
 } from '../utils/api.js';
-import WriteArticle from './WriteArticle.jsx';
 
 class Articles extends Component {
 	state = {
@@ -49,9 +48,9 @@ class Articles extends Component {
 			return (
 				<div className="Main">
 					{this.state.topic ? (
-						<h1 className="Header">{this.state.topic} Articles</h1>
+						<h1 className="Page-Title">{this.state.topic} Articles</h1>
 					) : (
-						<h1 className="Header">Articles</h1>
+						<h1 className="Page-Title">Articles</h1>
 					)}
 					<div className="sort-buttons">
 						{' '}
@@ -82,11 +81,6 @@ class Articles extends Component {
 							);
 						})}
 					</ul>
-					<WriteArticle
-						topic={this.state.topic}
-						user={this.props.user}
-						addArticle={this.addArticle}
-					/>
 				</div>
 			);
 	}

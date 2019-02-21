@@ -41,6 +41,15 @@
 	background-color: gray;
 }
 
+.border {
+	border-bottom-style: double;
+	border-bottom-width: 1px;
+}
+
+.write-article-link {
+	font-size: 20px;
+}
+
 /* tr:nth-child(even) {
 	background-color: #dddddd;
 } */

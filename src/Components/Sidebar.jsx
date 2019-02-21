@@ -25,17 +25,27 @@ class Sidebar extends Component {
 				)}
 
 				<table className="topic-table">
-					<th className="table-row-header">Topics</th>
+					<thead className="table-row-header">
+						<tr>
+							<td>Topics</td>
+						</tr>
+					</thead>
+
 					<tbody>
 						{topics.map((topic) => (
 							<tr className="table-row" key={topic.slug}>
-								<Link to={`/topics/${topic.slug}/articles`}>{topic.slug}</Link>
+								<td>
+									<Link to={`/topics/${topic.slug}/articles`}>
+										{topic.slug}
+									</Link>
+								</td>
 							</tr>
 						))}
 					</tbody>
 				</table>
+				<p className="border" />
 				<p>
-					<Link to={`/article/create`} className="table-row-header">
+					<Link className="write-article-link" to={`/article/create`}>
 						Write Article
 					</Link>
 				</p>

@@ -3,6 +3,7 @@ import './styles/App.css';
 import './styles/Article.css';
 import './styles/comment.css';
 import './styles/sidebar.css';
+import './styles/Topics.css';
 import Articles from './Components/Articles';
 import Nav from './Components/Nav';
 import Home from './Components/Home';
@@ -29,34 +30,28 @@ class App extends Component {
 				<Header />
 				<Nav />
 				<Sidebar user={this.state.user} logout={this.clearUser} />
-				<Auth
+				{/* <Auth
 					login={this.setUser}
 					logout={this.clearUser}
 					user={this.state.user}
-				>
-					<Router className="Main">
-						<Home path="/" />
-						<Articles path="/articles" />
-						<Articles path="/topics/:topic/articles/" />
-						<Articles path="/articles/:user" />
-						<Articles path="/articles/?sort_by" />
-						<IndividualArticle
-							path="/article/:id"
-							loggedInUser={this.state.user}
-						/>
-						<Topics path="/articles/topics" />
-						<Comments
-							path="/articles/comments"
-							loggedInUser={this.state.user}
-						/>
-						<Voter path="articles/voter" />
-						<WriteArticle
-							path="article/create"
-							loggedInUser={this.state.user}
-						/>
-					</Router>
-					<Footer />
-				</Auth>
+				> */}
+				<Router className="Main">
+					<Home path="/" />
+					<Articles path="/articles" />
+					<Articles path="/topics/:topic/articles/" />
+					<Articles path="/articles/:user" />
+					<Articles path="/articles/?sort_by" />
+					<IndividualArticle
+						path="/article/:id"
+						loggedInUser={this.state.user}
+					/>
+					<Topics path="/articles/topics" />
+					<Comments path="/articles/comments" loggedInUser={this.state.user} />
+					<Voter path="articles/voter" />
+					<WriteArticle path="article/create" loggedInUser={this.state.user} />
+				</Router>
+				<Footer />
+				{/* </Auth> */}
 			</div>
 		);
 	}

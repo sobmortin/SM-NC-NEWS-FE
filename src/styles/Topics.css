@@ -1,0 +1,21 @@
+.Topics {
+}
+
+.Topic-Link {
+	color: rgb(106, 132, 99);
+	display: flex;
+	flex-wrap: wrap;
+	font-size: 30px;
+	width: 400px;
+	margin: 15px;
+	transition: background-color 1s linear;
+	border-radius: 10px;
+}
+
+/* the :hover that causes the background-color to change */
+.Topic-Link:hover {
+	background-color: rgb(191, 209, 186);
+	border-radius: 10px;
+	width: 800px;
+	padding-left: 20px;
+}

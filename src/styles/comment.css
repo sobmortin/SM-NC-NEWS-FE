@@ -14,3 +14,7 @@
 	border-bottom-width: 1px;
 	border-bottom-style: solid;
 }
+
+.comment-body {
+	font-size: 17px;
+}
