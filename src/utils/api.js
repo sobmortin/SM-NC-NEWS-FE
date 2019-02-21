@@ -70,8 +70,8 @@ const deleteComment = (articleID, commentID) => {
 
 const createTopic = (description, slug) => {
 	return axios.post(`${BASE_URL}/api/topics`, {
-		slug,
 		description,
+		slug,
 	});
 };
 

@@ -13,9 +13,7 @@ class Topics extends Component {
 		return this.getTopics();
 	}
 
-	componentDidUpdate() {
-		console.log('in update');
-	}
+	componentDidUpdate() {}
 	render() {
 		const {topics} = this.state;
 		return (
@@ -34,18 +32,20 @@ class Topics extends Component {
 						);
 					})}
 				</ul>
-
 				<form action="">
 					<input
+						className="slug"
 						type="text"
 						placeholder="create new topic"
-						onChange={this.handleTopicChange}
-					/>
-					<input
-						type="text"
-						placeholder="give a brief description"
 						onChange={this.handleSlugChange}
 					/>
+					<input
+						className="description"
+						type="text"
+						placeholder="give a brief description"
+						onChange={this.handleTopicChange}
+					/>
+
 					<button onClick={this.handleSubmit}>Create!</button>
 				</form>
 			</div>
@@ -69,11 +69,8 @@ class Topics extends Component {
 		event.preventDefault();
 		const {newTopicDescription, newTopicSlug} = this.state;
 		createTopic(newTopicDescription, newTopicSlug).then(({data}) => {
-			console.log(data.topic);
-			const {topic} = data;
 			this.setState((prevState) => {
-				console.log(prevState);
-				return {topics: [topic, ...prevState.topics]};
+				return {topics: [...prevState.topics, data]};
 			});
 		});
 	};

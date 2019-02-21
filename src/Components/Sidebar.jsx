@@ -24,26 +24,6 @@ class Sidebar extends Component {
 					<p className="welcome-notice">Please Login</p>
 				)}
 
-				<table className="topic-table">
-					<thead className="table-row-header">
-						<tr>
-							<td>Topics</td>
-						</tr>
-					</thead>
-
-					<tbody>
-						{topics.map((topic) => (
-							<tr className="table-row" key={topic.slug}>
-								<td>
-									<Link to={`/topics/${topic.slug}/articles`}>
-										{topic.slug}
-									</Link>
-								</td>
-							</tr>
-						))}
-					</tbody>
-				</table>
-				<p className="border" />
 				<p>
 					<Link className="write-article-link" to={`/article/create`}>
 						Write Article

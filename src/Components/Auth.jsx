@@ -5,10 +5,10 @@ class Auth extends Component {
 		user: {},
 	};
 	render() {
+		
 		if (this.state.user === this.props.user.username) {
 			return <div>{this.props.children}</div>;
 		}
-
 		return (
 			<div className="Main">
 				<form className="login-form">
