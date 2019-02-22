@@ -5,7 +5,7 @@ import {
 	postCommentOnArticle,
 	deleteComment,
 } from '../utils/api';
-import Voter from './Voter';
+import CommentVoter from './CommentVoter';
 
 class Comments extends Component {
 	state = {
@@ -53,7 +53,7 @@ class Comments extends Component {
 								<p className="comment-body"> {body}</p>
 								<Link to={`/articles/${author}`}>{author}</Link>
 								{'|'} <span>{created_at}</span>
-								<Voter
+								<CommentVoter
 									votes={votes}
 									commentID={comment_id}
 									articleID={this.props.id}
@@ -88,7 +88,6 @@ class Comments extends Component {
 		const {id, loggedInUser} = this.props;
 		const user = loggedInUser.username;
 		postCommentOnArticle(id, user, body);
-		console.log(this.state.comments);
 	};
 
 	handleCommentDelete = (event) => {
