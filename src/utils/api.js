@@ -2,7 +2,7 @@ import axios from 'axios';
 const BASE_URL = 'https://the-nc-news.herokuapp.com';
 
 const fetchAllArticles = () => {
-	return axios.get(`${BASE_URL}/api/articles`).catch();
+	return axios.get(`${BASE_URL}/api/articles?limit=100`).catch();
 };
 
 const fetchIndividualArticle = (articleID) => {
