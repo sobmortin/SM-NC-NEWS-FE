@@ -1,5 +1,3 @@
-### Set-up
-
 ## Northcoders News
 
 A functioning front end to the NC News backend API
