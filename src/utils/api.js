@@ -14,7 +14,7 @@ const fetchTopics = () => {
 };
 
 const fetchArticlesByTopic = (topicSlug) => {
-	return axios.get(`${BASE_URL}/api${topicSlug}`).catch();
+	return axios.get(`${BASE_URL}/api${topicSlug}`);
 };
 
 const fetchArticlesByUser = (username) => {
@@ -45,6 +45,14 @@ const postCommentOnArticle = (articleID, username, body) => {
 const voteOnArticle = (increment, articleID) => {
 	return axios
 		.patch(`${BASE_URL}/api/articles/${articleID}`, {
+			inc_votes: `${increment}`,
+		})
+		.catch();
+};
+
+const voteOnComment = (increment, articleID, commentID) => {
+	return axios
+		.patch(`${BASE_URL}/api/articles/${articleID}/comments/${commentID}`, {
 			inc_votes: `${increment}`,
 		})
 		.catch();
@@ -86,6 +94,7 @@ export {
 	fetchSortedArticles,
 	postCommentOnArticle,
 	voteOnArticle,
+	voteOnComment,
 	postArticle,
 	deleteArticle,
 	deleteComment,

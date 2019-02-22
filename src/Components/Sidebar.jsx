@@ -12,9 +12,10 @@ class Sidebar extends Component {
 		this.getTopics();
 	}
 	render() {
+		console.log(this.props);
 		return (
 			<div className="Sidebar">
-				{this.props.user.hasOwnProperty('username') ? (
+				{this.props.user ? (
 					<p className="welcome-notice">
 						Welcome {this.props.user.username}
 						<button onClick={this.props.logout}>Logout</button>
@@ -22,7 +23,6 @@ class Sidebar extends Component {
 				) : (
 					<p className="welcome-notice">Please Login</p>
 				)}
-
 				<p>
 					<Link className="write-article-link" to={`/article/create`}>
 						Write Article

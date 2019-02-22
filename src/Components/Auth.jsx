@@ -5,11 +5,9 @@ class Auth extends Component {
 		user: {},
 	};
 	render() {
-		console.log(this.props);
-		if (this.state.user === this.props.user.username) {
-			return <div>{this.props.children}</div>;
-		}
-		return (
+		return this.props.user ? (
+			<div>{this.props.children}</div>
+		) : (
 			<div className="Main">
 				<form className="login-form">
 					<input

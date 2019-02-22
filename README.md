@@ -7,9 +7,10 @@ Northcoders News has articles which are divided into topics. Each article has us
 This review sprint should consolidate your understanding of making a [C.R.U.D](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) application from a front end perspective.
 
 ### Objectives
+
 1. Pull together all the front-end skills, technologies and best practises you have learnt.
 2. Make asynchronous API calls to your own server.
-4. Use HTTP request types to interact with your backend, and HTTP response codes to update your UI accordingly.
+3. Use HTTP request types to interact with your backend, and HTTP response codes to update your UI accordingly.
 
 ### What to do
 
@@ -33,10 +34,10 @@ Use the generic react-project-checklist as a guide to setting up your app. Here 
 2. As a user, I should be able to view a list of all articles on a specific topic.
 3. As a user, I should be able to view an individual article.
 4. As a user, I should be able to view an individual article's comments.
-5. As a user, I should be able to sort articles by: 
-    - date created
-    - comment_count
-    - votes
+5. As a user, I should be able to sort articles by:
+   - date created
+   - comment_count
+   - votes
 6. As a hiring partner with no access to my laptop, I should be able to use the site on my mobile without sacrificing style or functionality.
 7. **As a user, I should be able to login to the site.**
 8. **As a hiring partner with no knowledge of the users in the database, it should be very clear to me how I can login to the site.**
@@ -53,16 +54,17 @@ Use the generic react-project-checklist as a guide to setting up your app. Here 
 19. As a hiring parter, I should be able to find a link to the hosted version of the back-end project in the readme.
 
 _**If time...**_
+
 20. **As a user, I should be able to navigate over pages of articles (e.g. using pagination or infinite scroll).**
 21. **As a user, I should be able to navigate over pages of comments (e.g. using pagination or infinite scroll).**
 22. As a user, I should be able to view a list of all articles written by a specific user.
 
-*Note regarding **BOLD** user stories:*
+_Note regarding **BOLD** user stories:_
+
 - Infinite scroll / pagination to be covered in Tuesday's lecture
 - User login / auth to be covered in Tuesday's lecture
 - Voting / optimistic rendering to be covered in Wednesday's lecture
 - Error handling / error pages to be covered in Thursday's lecture
-
 
 ### Deployment
 

@@ -9,6 +9,7 @@ class IndividualArticle extends Component {
 	state = {
 		article: {},
 		deleted: false,
+		loading: true,
 	};
 	componentDidMount() {
 		return this.getIndividualArticles(this.props.id);
@@ -59,7 +60,7 @@ class IndividualArticle extends Component {
 	}
 	getIndividualArticles = (articleID) => {
 		fetchIndividualArticle(articleID).then(({data}) => {
-			this.setState({article: data.article});
+			this.setState({article: data.article, loading: false});
 		});
 	};
 
@@ -67,7 +68,7 @@ class IndividualArticle extends Component {
 		event.preventDefault();
 		const articleID = event.target.value;
 		deleteArticle(articleID).then((res) => {
-			this.setState({deleted: true});
+			this.setState({deleted: true, loading: false});
 		});
 	};
 }

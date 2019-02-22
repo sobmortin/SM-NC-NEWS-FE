@@ -1,9 +1,11 @@
 import React, {Component} from 'react';
+import {Link} from '@reach/router';
 import {
 	fetchCommentsForArticle,
 	postCommentOnArticle,
 	deleteComment,
 } from '../utils/api';
+import Voter from './Voter';
 
 class Comments extends Component {
 	state = {
@@ -49,11 +51,20 @@ class Comments extends Component {
 						return (
 							<li key={comment_id} className="Comments-item">
 								<p className="comment-body"> {body}</p>
-								<span>{author}</span> {' | '} <span>{votes}</span>
-								<p>{created_at}</p>
+								<Link to={`/articles/${author}`}>{author}</Link>
+								{'|'} <span>{created_at}</span>
+								<Voter
+									votes={votes}
+									commentID={comment_id}
+									articleID={this.props.id}
+								/>
 								{author === username && (
-									<button value={comment_id} onClick={this.handleCommentDelete}>
-										delete
+									<button
+										className="comment-delete"
+										value={comment_id}
+										onClick={this.handleCommentDelete}
+									>
+										Delete Comment
 									</button>
 								)}
 							</li>

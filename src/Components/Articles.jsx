@@ -6,6 +6,7 @@ import {
 	fetchArticlesByUser,
 	fetchSortedArticles,
 } from '../utils/api.js';
+import NoMatch from './NoMatch.jsx';
 
 class Articles extends Component {
 	state = {
@@ -13,9 +14,11 @@ class Articles extends Component {
 		topic: '',
 		user: '',
 		loading: true,
+		err: false,
 	};
 
 	componentDidMount() {
+		console.log(this.state.err);
 		if (this.props.user) {
 			return this.props.user
 				? this.getArticlesByUser(this.props.user)
@@ -43,12 +46,19 @@ class Articles extends Component {
 	}
 
 	render() {
+		const {topic} = this.state;
+		console.log('errorrr', this.state.err);
+		if (this.state.err) {
+			return <NoMatch />;
+		}
 		if (this.state.loading) return <p>loading...</p>;
 		else
 			return (
 				<div className="Main">
 					{this.state.topic ? (
-						<h1 className="Page-Title">{this.state.topic} Articles</h1>
+						<h1 className="Page-Title">
+							{topic.charAt(0).toUpperCase() + topic.slice(1)} Articles
+						</h1>
 					) : (
 						<h1 className="Page-Title">Articles</h1>
 					)}
@@ -85,33 +95,40 @@ class Articles extends Component {
 			);
 	}
 	getAllArticles = () => {
-		return fetchAllArticles().then(({data}) => {
-			this.setState({articles: data.articles, loading: false, topic: ''});
-		});
-	};
-	getArticlesByTopic = (topicURI) => {
-		return fetchArticlesByTopic(topicURI).then(({data}) => {
+		fetchAllArticles().then(({data}) => {
 			this.setState({
 				articles: data.articles,
 				loading: false,
-				topic: this.props.topic,
+				topic: '',
+				err: false,
 			});
 		});
 	};
+	getArticlesByTopic = (topicURI) => {
+		fetchArticlesByTopic(topicURI)
+			.then(({data}) => {
+				this.setState({
+					articles: data.articles,
+					loading: false,
+					topic: this.props.topic,
+					err: false,
+				});
+			})
+			.catch((err) => {
+				this.setState({err: true});
+			});
+	};
 	getArticlesByUser = (username) => {
-		return fetchArticlesByUser(username).then(({data}) => {
-			this.setState({articles: data.articles, loading: false});
+		fetchArticlesByUser(username).then(({data}) => {
+			this.setState({articles: data.articles, loading: false, err: false});
 		});
 	};
 	handleSortClick = (event) => {
 		const {value} = event.target;
 		fetchSortedArticles(value).then(({data}) => {
 			const {articles} = data;
-			this.setState({articles});
+			this.setState({articles, err: false});
 		});
-	};
-	addArticle = (articleObject) => {
-		console.log(articleObject);
 	};
 }
 

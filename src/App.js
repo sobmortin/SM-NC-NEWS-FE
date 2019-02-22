@@ -22,11 +22,16 @@ import NoMatch from './Components/NoMatch';
 
 class App extends Component {
 	state = {
-		user: {},
+		user: null,
 	};
 
+	componentDidMount() {
+		const stringedUser = localStorage.getItem('user');
+		const localUser = JSON.parse(stringedUser);
+		this.setState({user: localUser});
+	}
+
 	render() {
-		console.log(localStorage);
 		return (
 			<div className="App">
 				<Header />
@@ -54,7 +59,7 @@ class App extends Component {
 						/>
 						<Voter path="articles/voter" />
 						<WriteArticle
-							path="article/create"
+							path="/article/create"
 							loggedInUser={this.state.user}
 						/>
 						<NoMatch default />
@@ -65,15 +70,13 @@ class App extends Component {
 		);
 	}
 	setUser = (username) => {
-		console.log('login called');
 		return fetchUserForLogin(username).then(({data}) => {
 			this.setState({user: data.user});
-			localStorage.setItem('user', data.user.username);
+			localStorage.setItem('user', JSON.stringify(data.user));
 		});
 	};
 	clearUser = () => {
-		console.log('logout called');
-		this.setState({user: {}});
+		this.setState({user: null});
 		localStorage.removeItem('user');
 	};
 }

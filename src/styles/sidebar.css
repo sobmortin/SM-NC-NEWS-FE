@@ -6,6 +6,7 @@
 	grid-template: 1fr 1fr 1fr 1fr;
 	border-right-width: 1px;
 	border-right-style: solid;
+	/* background-image: linear-gradient(to white); */
 }
 
 .SideBar-items {

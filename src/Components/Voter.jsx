@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {voteOnArticle} from '../utils/api';
+import {voteOnArticle, voteOnComment} from '../utils/api';
 
 class Voter extends Component {
 	state = {
@@ -7,6 +7,7 @@ class Voter extends Component {
 	};
 
 	render() {
+		// console.log(this.props);
 		const {votes} = this.props;
 		const {newVote} = this.state;
 		return (
@@ -22,12 +23,18 @@ class Voter extends Component {
 		);
 	}
 	handleVote = (increment) => {
-		const {articleID} = this.props;
-		voteOnArticle(increment, articleID).then(() => {
-			this.setState((state) => {
-				return {newVote: state.newVote + increment};
-			});
-		});
+		const {articleID, commentID} = this.props;
+		this.props.commentID
+			? voteOnComment(increment, articleID, commentID).then(() => {
+					this.setState((state) => {
+						return {newVote: state.newVote + increment};
+					});
+			  })
+			: voteOnArticle(increment, articleID).then(() => {
+					this.setState((state) => {
+						return {newVote: state.newVote + increment};
+					});
+			  });
 	};
 }
 
