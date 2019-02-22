@@ -11,7 +11,6 @@ class Comments extends Component {
 	state = {
 		comments: [],
 		body: '',
-		commentDeleted: false,
 	};
 	componentDidMount() {
 		return this.getCommentsForArticle(this.props.id);
@@ -76,7 +75,7 @@ class Comments extends Component {
 	}
 	getCommentsForArticle = (articleID) => {
 		fetchCommentsForArticle(articleID).then(({data}) => {
-			this.setState({comments: data.comments, commentDeleted: false});
+			this.setState({comments: data.comments});
 		});
 	};
 	handleCommentChange = (event) => {
@@ -95,7 +94,9 @@ class Comments extends Component {
 		const {value: commentID} = event.target;
 		const {id: articleID} = this.props;
 		deleteComment(articleID, commentID).then((res) => {
-			this.setState({commentDeleted: true});
+			fetchCommentsForArticle(articleID).then(({data}) => {
+				this.setState({comments: data.comments});
+			});
 		});
 	};
 }

@@ -1,14 +1,19 @@
 import React, {Component} from 'react';
-import {postArticle} from '../utils/api';
+import {postArticle, fetchTopics} from '../utils/api';
 
 class WriteArticle extends Component {
 	state = {
+		existingTopics: [],
 		title: '',
 		body: '',
 		user: '',
 		topic: '',
 		added: false,
 	};
+
+	componentDidMount() {
+		this.getTopics();
+	}
 	render() {
 		if (this.state.added)
 			return <p>Article added! Go to articles to view it</p>;
@@ -66,6 +71,11 @@ class WriteArticle extends Component {
 		const {username} = this.props.loggedInUser;
 		return postArticle(topic, title, body, username).then(({data}) => {
 			this.setState({added: true});
+		});
+	};
+	getTopics = () => {
+		fetchTopics().then(({data}) => {
+			this.setState({existingTopics: data.topcs});
 		});
 	};
 }

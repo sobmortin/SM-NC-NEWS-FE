@@ -5,6 +5,7 @@ import {Link} from '@reach/router';
 class Users extends Component {
 	state = {
 		users: [],
+		loading: true,
 	};
 
 	componentDidMount() {
@@ -32,7 +33,7 @@ class Users extends Component {
 	}
 	getUsers = () => {
 		fetchUsers().then(({data}) => {
-			this.setState({users: data.users});
+			this.setState({users: data.users, loading: false});
 		});
 	};
 }

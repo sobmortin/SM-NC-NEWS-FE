@@ -1,11 +1,10 @@
 .User-List {
-	margin: 0;
-	padding-left: 0;
+	padding-top: 20px;
 	justify-content: center;
 	width: 100%;
 	display: grid;
 	grid-area: auto;
-	grid-template: 20em 20em 20em /20em 20em 20em;
+	/* grid-template: 10em 10em 10em /10em 20em 20em; */
 	overflow: scroll;
 	height: 100vh;
 }
@@ -13,6 +12,7 @@
 .User-Link {
 	width: 100%;
 	height: 100%;
+	padding: 50px;
 	justify-content: center;
 	border-color: black;
 	color: rgb(106, 132, 99);
@@ -23,5 +23,5 @@
 .User-Link:hover {
 	background-color: rgb(191, 209, 186);
 	border-radius: 10px;
-	box-shadow: 0 30px 40px rgba(0, 0, 0, 0.1);
+	box-shadow: red;
 }
