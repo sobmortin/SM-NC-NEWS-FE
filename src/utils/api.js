@@ -17,6 +17,9 @@ const fetchArticlesByTopic = (topicSlug) => {
 	return axios.get(`${BASE_URL}/api${topicSlug}`);
 };
 
+const fetchUsers = () => {
+	return axios.get(`${BASE_URL}/api/users`).catch();
+};
 const fetchArticlesByUser = (username) => {
 	return axios.get(`${BASE_URL}/api/users/${username}/articles`).catch();
 };
@@ -89,6 +92,7 @@ export {
 	fetchTopics,
 	fetchArticlesByTopic,
 	fetchCommentsForArticle,
+	fetchUsers,
 	fetchArticlesByUser,
 	fetchUserForLogin,
 	fetchSortedArticles,

@@ -18,6 +18,9 @@ class Nav extends Component {
 				<Link className="Topnav-Button" to="/articles/topics">
 					TOPICS
 				</Link>
+				<Link className="Topnav-Button" to="/users">
+					USERS
+				</Link>
 			</nav>
 		);
 	}

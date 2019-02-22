@@ -76,7 +76,7 @@ class Comments extends Component {
 	}
 	getCommentsForArticle = (articleID) => {
 		fetchCommentsForArticle(articleID).then(({data}) => {
-			this.setState({comments: data.comments});
+			this.setState({comments: data.comments, commentDeleted: false});
 		});
 	};
 	handleCommentChange = (event) => {
@@ -99,7 +99,5 @@ class Comments extends Component {
 		});
 	};
 }
-
-//spread operator in state
 
 export default Comments;

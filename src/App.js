@@ -4,6 +4,7 @@ import './styles/Article.css';
 import './styles/comment.css';
 import './styles/sidebar.css';
 import './styles/Topics.css';
+import './styles/User.css'
 import Articles from './Components/Articles';
 import Nav from './Components/Nav';
 import Home from './Components/Home';
@@ -19,6 +20,7 @@ import {fetchUserForLogin} from './utils/api';
 import Voter from './Components/Voter';
 import WriteArticle from './Components/WriteArticle';
 import NoMatch from './Components/NoMatch';
+import Users from './Components/Users';
 
 class App extends Component {
 	state = {
@@ -53,6 +55,7 @@ class App extends Component {
 							loggedInUser={this.state.user}
 						/>
 						<Topics path="/articles/topics" />
+						<Users path="/users" />
 						<Comments
 							path="/articles/comments"
 							loggedInUser={this.state.user}

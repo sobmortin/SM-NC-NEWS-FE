@@ -1,0 +1,28 @@
+.User-List {
+	margin: 0;
+	padding-left: 0;
+	justify-content: center;
+	width: 100%;
+	display: grid;
+	grid-area: auto;
+	grid-template: 20em 20em 20em /20em 20em 20em;
+	overflow: scroll;
+	height: 100vh;
+}
+
+.User-Link {
+	position: relative;
+	display: inline;
+	justify-content: center;
+	border: 10px;
+	border-color: black;
+	color: rgb(106, 132, 99);
+	font-size: 30px;
+	overflow: scroll;
+}
+
+.User-Link:hover {
+	background-color: rgb(191, 209, 186);
+	border-radius: 10px;
+	box-shadow: 0 30px 40px rgba(0, 0, 0, 0.1);
+}
