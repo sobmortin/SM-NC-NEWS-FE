@@ -2,9 +2,9 @@
 	grid-area: sidebar;
 	justify-content: flex;
 	align-items: top;
-	grid-template: 1fr 1fr 1fr 1fr;
+	/* grid-template: 1fr 1fr 1fr 1fr; */
 	border-right-width: 6px;
-	border-right-style: solid;
+	border-right-style: groove;
 	border-right-color: green;
 	background-color: white;
 }

@@ -2,11 +2,11 @@ import axios from 'axios';
 const BASE_URL = 'https://the-nc-news.herokuapp.com';
 
 const fetchAllArticles = () => {
-	return axios.get(`${BASE_URL}/api/articles?limit=100`).catch();
+	return axios.get(`${BASE_URL}/api/articles?limit=100`);
 };
 
 const fetchIndividualArticle = (articleID) => {
-	return axios.get(`${BASE_URL}/api/articles/${articleID}`).catch();
+	return axios.get(`${BASE_URL}/api/articles/${articleID}`);
 };
 
 const fetchTopics = () => {
@@ -18,7 +18,7 @@ const fetchArticlesByTopic = (topicURI) => {
 };
 
 const fetchUsers = () => {
-	return axios.get(`${BASE_URL}/api/users`).catch();
+	return axios.get(`${BASE_URL}/api/users`);
 };
 const fetchArticlesByUser = (username) => {
 	return axios.get(`${BASE_URL}/api/users/${username}/articles`).catch();

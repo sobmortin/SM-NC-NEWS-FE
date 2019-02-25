@@ -11,7 +11,7 @@ class Topics extends Component {
 		loading: true,
 	};
 	componentDidMount() {
-		return this.getTopics();
+		this.getTopics();
 	}
 
 	componentDidUpdate() {}
@@ -55,7 +55,7 @@ class Topics extends Component {
 			);
 	}
 	getTopics = () => {
-		return fetchTopics().then(({data}) => {
+		fetchTopics().then(({data}) => {
 			this.setState({topics: data.topics, loading: false});
 		});
 	};

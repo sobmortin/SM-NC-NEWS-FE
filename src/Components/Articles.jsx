@@ -31,11 +31,9 @@ class Articles extends Component {
 
 	componentDidUpdate(prevProps, prevState) {
 		if (prevProps.user !== this.props.user) {
-			if (prevProps.user !== this.props.user) {
-				this.props.uri === '/articles'
-					? this.getAllArticles()
-					: this.getArticlesByUser(this.props.user);
-			}
+			this.props.uri === '/articles'
+				? this.getAllArticles()
+				: this.getArticlesByUser(this.props.user);
 		}
 		if (prevProps.topic !== this.props.topic) {
 			this.props.topic

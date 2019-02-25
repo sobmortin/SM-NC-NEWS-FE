@@ -9,14 +9,16 @@ import moment from 'moment';
 class IndividualArticle extends Component {
 	state = {
 		article: {},
+		error: false,
 		deleted: false,
 		loading: true,
 	};
 	componentDidMount() {
-		return this.getIndividualArticles(this.props.id);
+		this.getIndividualArticles(this.props.id);
 	}
 
 	render() {
+		console.log(this.state.err);
 		const {
 			topic,
 			votes,
@@ -28,6 +30,8 @@ class IndividualArticle extends Component {
 			article_id,
 		} = this.state.article;
 		const {username} = this.props.loggedInUser;
+		if (!this.state.article.hasOwnProperty('title'))
+			return <p>Article Does Not Exist</p>;
 		if (this.state.deleted) return <p>article deleted</p>;
 		return (
 			<div className="Main">
@@ -56,7 +60,8 @@ class IndividualArticle extends Component {
 	}
 	getIndividualArticles = (articleID) => {
 		fetchIndividualArticle(articleID).then(({data}) => {
-			this.setState({article: data.article, loading: false});
+			if (!data) this.setState({error: true});
+			else this.setState({article: data.article, loading: false});
 		});
 	};
 

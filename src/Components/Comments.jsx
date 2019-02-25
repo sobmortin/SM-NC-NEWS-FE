@@ -14,7 +14,7 @@ class Comments extends Component {
 		deleted: false,
 	};
 	componentDidMount() {
-		return this.getCommentsForArticle(this.props.id);
+		this.getCommentsForArticle(this.props.id);
 	}
 
 	componentDidUpdate(prevProps, prevState) {
@@ -97,8 +97,6 @@ class Comments extends Component {
 		const {value: commentID} = event.target;
 		const {id: articleID} = this.props;
 		deleteComment(articleID, commentID).then((res) => {
-			// this.setState({deleted: true});
-			console.log(res);
 			fetchCommentsForArticle(articleID).then(({data}) => {
 				this.setState({comments: data.comments});
 			});

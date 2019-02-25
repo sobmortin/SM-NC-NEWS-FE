@@ -49,6 +49,7 @@
 	height: 100vh;
 	overflow-y: auto;
 	overflow: scroll;
+	background-color: white;
 }
 
 .Page-Title {
@@ -87,18 +88,19 @@ h1 {
 }
 .individual-item {
 	/* border-style: solid; */
-	width: 80%;
+	width: 100%;
 	text-align: left;
 	justify-content: left;
 	margin: 20px;
-	padding-left: 2%;
-	font-size: 30px;
+	padding: 2px;
+	font-size: 20px;
+	border-style: groove;
+	border-radius: 10px;
 }
 .individual-item:hover {
-	transition: 1s;
+	transition: 0.25s;
 	width: 100%;
 	background-color: rgb(191, 209, 186);
-	border-bottom-style: double;
 	border-width: 0.5px;
 	border-radius: 10px;
 }
@@ -134,7 +136,8 @@ p {
 }
 
 .Link {
-	color: gray;
+	color: black;
+	width: 80%;
 }
 
 button {
