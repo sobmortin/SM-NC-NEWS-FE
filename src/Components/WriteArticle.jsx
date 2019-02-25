@@ -14,19 +14,21 @@ class WriteArticle extends Component {
 	componentDidMount() {
 		this.getTopics();
 	}
+
 	render() {
 		if (this.state.added)
 			return <p>Article added! Go to articles to view it</p>;
 		else
 			return (
 				<div className="write-article">
-					<form className="article-form" action="">
+					<form className="article-form">
 						<h1>Title</h1>
 						<textarea
 							name="Title"
 							id="Title"
 							cols="50"
 							rows="1"
+							required
 							onChange={this.handleTitleChange}
 						/>
 						<p>Topic</p>
@@ -34,6 +36,7 @@ class WriteArticle extends Component {
 							cols="30"
 							rows="1"
 							type="text"
+							required
 							onChange={this.handleTopicChange}
 						/>
 						<p>Article</p>
@@ -42,6 +45,7 @@ class WriteArticle extends Component {
 							id="Body"
 							cols="60"
 							rows="8"
+							required
 							onChange={this.handleArticleChange}
 						/>
 						<p>Submit!</p>
@@ -70,12 +74,12 @@ class WriteArticle extends Component {
 		const {topic, title, body} = this.state;
 		const {username} = this.props.loggedInUser;
 		return postArticle(topic, title, body, username).then(({data}) => {
-			this.setState({added: true});
+			this.setState({added: true})
 		});
 	};
 	getTopics = () => {
 		fetchTopics().then(({data}) => {
-			this.setState({existingTopics: data.topcs});
+			this.setState({existingTopics: [data.topics]});
 		});
 	};
 }

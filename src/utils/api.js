@@ -10,11 +10,11 @@ const fetchIndividualArticle = (articleID) => {
 };
 
 const fetchTopics = () => {
-	return axios.get(`${BASE_URL}/api/topics`).catch();
+	return axios.get(`${BASE_URL}/api/topics`);
 };
 
-const fetchArticlesByTopic = (topicSlug) => {
-	return axios.get(`${BASE_URL}/api${topicSlug}`);
+const fetchArticlesByTopic = (topicURI) => {
+	return axios.get(`${BASE_URL}/api${topicURI}`);
 };
 
 const fetchUsers = () => {

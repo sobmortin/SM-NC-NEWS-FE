@@ -11,6 +11,7 @@ class Comments extends Component {
 	state = {
 		comments: [],
 		body: '',
+		deleted: false,
 	};
 	componentDidMount() {
 		return this.getCommentsForArticle(this.props.id);
@@ -36,6 +37,7 @@ class Comments extends Component {
 						rows="2"
 						columns="50"
 						type="text"
+						value={this.state.body}
 						onChange={this.handleCommentChange}
 					/>
 				</form>
@@ -79,7 +81,7 @@ class Comments extends Component {
 		});
 	};
 	handleCommentChange = (event) => {
-		return this.setState({body: event.target.value});
+		this.setState({body: event.target.value});
 	};
 	handleCommentSubmit = (event) => {
 		event.preventDefault();
@@ -87,6 +89,7 @@ class Comments extends Component {
 		const {id, loggedInUser} = this.props;
 		const user = loggedInUser.username;
 		postCommentOnArticle(id, user, body);
+		this.setState({body: ''});
 	};
 
 	handleCommentDelete = (event) => {
@@ -94,6 +97,8 @@ class Comments extends Component {
 		const {value: commentID} = event.target;
 		const {id: articleID} = this.props;
 		deleteComment(articleID, commentID).then((res) => {
+			// this.setState({deleted: true});
+			console.log(res);
 			fetchCommentsForArticle(articleID).then(({data}) => {
 				this.setState({comments: data.comments});
 			});

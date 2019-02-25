@@ -6,7 +6,6 @@ const Header = () => {
 			<p>
 				<strong>NC </strong>News
 			</p>
-			<p></p>
 		</div>
 	);
 };

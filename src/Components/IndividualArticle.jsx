@@ -4,6 +4,7 @@ import {fetchIndividualArticle, deleteArticle} from '../utils/api';
 import '../styles/App.css';
 import Comments from './Comments';
 import Voter from './Voter';
+import moment from 'moment';
 
 class IndividualArticle extends Component {
 	state = {
@@ -13,11 +14,6 @@ class IndividualArticle extends Component {
 	};
 	componentDidMount() {
 		return this.getIndividualArticles(this.props.id);
-	}
-	componentDidUpdate(prevProps, prevState) {
-		if (this.state.deleted !== prevState.deleted) {
-			console.log('updated');
-		}
 	}
 
 	render() {
@@ -45,7 +41,7 @@ class IndividualArticle extends Component {
 					<Link to={`/articles/${author}`}>{author}</Link>
 				</span>
 				<p>{comment_count}</p>
-				<span>{created_at}</span>
+				<span> {moment(created_at).format('MMM Do YY')}</span>
 				<Voter votes={votes} articleID={article_id} />
 				{username === author && (
 					<button onClick={this.handleDelete} value={article_id}>

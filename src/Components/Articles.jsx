@@ -18,28 +18,27 @@ class Articles extends Component {
 	};
 
 	componentDidMount() {
-		console.log(this.state.err);
 		if (this.props.user) {
-			return this.props.user
+			this.props.user
 				? this.getArticlesByUser(this.props.user)
 				: this.getAllArticles();
 		} else if (this.props.topic) {
-			return this.props.topic
+			this.props.topic
 				? this.getArticlesByTopic(this.props.uri)
 				: this.getAllArticles();
-		} else return this.getAllArticles();
+		} else this.getAllArticles();
 	}
 
 	componentDidUpdate(prevProps, prevState) {
 		if (prevProps.user !== this.props.user) {
 			if (prevProps.user !== this.props.user) {
-				return this.props.uri === '/articles'
+				this.props.uri === '/articles'
 					? this.getAllArticles()
 					: this.getArticlesByUser(this.props.user);
 			}
 		}
 		if (prevProps.topic !== this.props.topic) {
-			return this.props.topic
+			this.props.topic
 				? this.getArticlesByTopic(this.props.uri)
 				: this.getAllArticles();
 		}
@@ -47,7 +46,6 @@ class Articles extends Component {
 
 	render() {
 		const {topic} = this.state;
-		console.log('errorrr', this.state.err);
 		if (this.state.err) {
 			return <NoMatch />;
 		}
@@ -64,7 +62,7 @@ class Articles extends Component {
 					)}
 					<div className="sort-buttons">
 						{' '}
-						<p>sort articles</p>
+						<p>Sort Articles</p>
 						<button value="created_at" onClick={this.handleSortClick}>
 							date
 						</button>
@@ -80,13 +78,18 @@ class Articles extends Component {
 						{this.state.articles.map((article) => {
 							return (
 								<li key={article.article_id} className="individual-item">
-									<Link className="Link" to={`/article/${article.article_id}`}>
-										{article.title}
-									</Link>
-									<p className="comment-and-votes">
-										comments: {article.comment_count}
-									</p>
-									<p className="comment-and-votes">votes: {article.votes}</p>
+									<div>
+										<Link
+											className="Link"
+											to={`/article/${article.article_id}`}
+										>
+											{article.title}
+										</Link>
+										<p className="comment-and-votes">
+											comments: {article.comment_count}
+										</p>
+										<p className="comment-and-votes">votes: {article.votes}</p>
+									</div>
 								</li>
 							);
 						})}

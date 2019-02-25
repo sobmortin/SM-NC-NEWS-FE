@@ -2,6 +2,10 @@
 
 A functioning front end to the NC News backend API
 
+link to backend:
+
+https://github.com/sobmortin/sm-nc-news
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
@@ -16,9 +20,9 @@ Give examples
 
 ### Installing
 
-run npm install from the command line to install dependencies
+run \$ npm install from the command line to install dependencies
 
-run npm start to run project locally
+run \$ npm start to run project locally
 
 ## Running the tests
 
