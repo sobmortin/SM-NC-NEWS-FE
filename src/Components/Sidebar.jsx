@@ -24,9 +24,9 @@ class Sidebar extends Component {
 				) : (
 					<p className="welcome-notice">Please Login</p>
 				)}
-				<p>
+				<p >
 					{this.props.user && (
-						<Link className="write-article-link" to={`/article/create`}>
+						<Link className="individual-item" to={`/article/create`}>
 							Write Article
 						</Link>
 					)}
