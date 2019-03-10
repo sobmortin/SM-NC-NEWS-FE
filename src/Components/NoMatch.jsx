@@ -3,7 +3,7 @@ import React from 'react';
 const NoMatch = () => {
 	return (
 		<div>
-			<p className="no-match">no match</p>
+			<p className="error-message">Bad Request: 400!</p>
 		</div>
 	);
 };

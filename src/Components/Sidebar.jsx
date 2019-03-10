@@ -15,11 +15,11 @@ class Sidebar extends Component {
 		return (
 			<div className="Sidebar">
 				{this.props.user ? (
-					<div className="welcome-notice">
-						Welcome {this.props.user.username}
-						<p>
-							<button onClick={this.props.logout}>Logout</button>
-						</p>
+					<div className="sidebar-text">
+						{/* <p className="welcome-notice">
+							Welcome {this.props.user.username}
+						</p> */}
+						<button onClick={this.props.logout}>Logout</button>
 					</div>
 				) : (
 					<p className="welcome-notice">Please Login</p>

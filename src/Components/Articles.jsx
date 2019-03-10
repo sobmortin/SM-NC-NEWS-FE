@@ -7,6 +7,7 @@ import {
 	fetchSortedArticles,
 } from '../utils/api.js';
 import NoMatch from './NoMatch.jsx';
+import Loader from './Loader.jsx';
 
 class Articles extends Component {
 	state = {
@@ -47,7 +48,7 @@ class Articles extends Component {
 		if (this.state.err) {
 			return <NoMatch />;
 		}
-		if (this.state.loading) return <p>loading...</p>;
+		if (this.state.loading) return <Loader />;
 		else
 			return (
 				<div className="Main">

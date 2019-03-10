@@ -46,10 +46,9 @@
 	justify-content: center;
 	padding: 1em;
 	padding-right: 6em;
-	height: 100vh;
+	height: 75vh;
 	overflow-y: auto;
 	overflow: scroll;
-	background-color: white;
 }
 
 .Page-Title {
@@ -96,12 +95,14 @@ h1 {
 	font-size: 20px;
 	border-style: groove;
 	border-radius: 10px;
+	background-color: white;
 }
 .individual-item:hover {
 	transition: 0.25s;
+	padding: 2px;
 	width: 100%;
 	background-color: rgb(191, 209, 186);
-	border-width: 0.5px;
+	border-style: groove;
 	border-radius: 10px;
 }
 

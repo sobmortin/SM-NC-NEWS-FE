@@ -1,6 +1,6 @@
 ## Northcoders News
 
-A functioning front end to the NC News backend API
+This is the front-end for my NC News project.
 
 link to backend:
 
@@ -12,29 +12,13 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
-
-```
-Give examples
-```
+Node.js
 
 ### Installing
 
-run \$ npm install from the command line to install dependencies
+run '\$ npm install' from the command line to install all the necessary dependencies:
 
-run \$ npm start to run project locally
-
-## Running the tests
-
-No tests on this project
-
-### Break down into end to end tests
-
-### And coding style tests
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
+run '\$ npm start' to run project locally
 
 ## Authors
 

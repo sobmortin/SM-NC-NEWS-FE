@@ -5,6 +5,7 @@ import '../styles/App.css';
 import Comments from './Comments';
 import Voter from './Voter';
 import moment from 'moment';
+import Page404 from './Page404';
 
 class IndividualArticle extends Component {
 	state = {
@@ -18,7 +19,6 @@ class IndividualArticle extends Component {
 	}
 
 	render() {
-		console.log(this.state.err);
 		const {
 			topic,
 			votes,
@@ -30,8 +30,7 @@ class IndividualArticle extends Component {
 			article_id,
 		} = this.state.article;
 		const {username} = this.props.loggedInUser;
-		if (!this.state.article.hasOwnProperty('title'))
-			return <p>Article Does Not Exist</p>;
+		if (!this.state.article.hasOwnProperty('title')) return <Page404 />;
 		if (this.state.deleted) return <p>article deleted</p>;
 		return (
 			<div className="Main">

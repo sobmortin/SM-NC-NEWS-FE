@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {fetchUsers} from '../utils/api';
 import {Link} from '@reach/router';
+import Loader from './Loader';
 
 class Users extends Component {
 	state = {
@@ -13,23 +14,25 @@ class Users extends Component {
 	}
 	render() {
 		const {users} = this.state;
-		return (
-			<div>
-				<h1 className="Page-Title">Users</h1>
-				<ul className="User-List">
-					{users.map((user) => {
-						console.log(user);
-						return (
-							<div key={user.username}>
-								<Link className="User-Link" to={`/articles/${user.username}`}>
-									{user.username}
-								</Link>
-							</div>
-						);
-					})}
-				</ul>
-			</div>
-		);
+		if (this.state.loading) return <Loader />;
+		else
+			return (
+				<div>
+					<h1 className="Page-Title">Users</h1>
+					<ul>
+						{users.map((user) => {
+							console.log(user);
+							return (
+								<li key={user.username} className="individual-item">
+									<Link className="Link" to={`/articles/${user.username}`}>
+										{user.username}
+									</Link>
+								</li>
+							);
+						})}
+					</ul>
+				</div>
+			);
 	}
 	getUsers = () => {
 		fetchUsers().then(({data}) => {

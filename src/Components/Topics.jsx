@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Link} from '@reach/router';
 
 import {fetchTopics, createTopic} from '../utils/api';
+import Loader from './Loader';
 
 class Topics extends Component {
 	state = {
@@ -17,24 +18,11 @@ class Topics extends Component {
 	componentDidUpdate() {}
 	render() {
 		const {topics} = this.state;
-		if (this.state.loading) return <p>loading...</p>;
+		if (this.state.loading) return <Loader />;
 		else
 			return (
 				<div className="Topics">
 					<h1 className="Page-Title">Topics</h1>
-					<ul className="topics-list">
-						{topics.map((topic) => {
-							return (
-								<Link
-									to={`/topics/${topic.slug}/articles`}
-									key={topic.slug}
-									className="Topic-Link"
-								>
-									{topic.slug}: {topic.description}
-								</Link>
-							);
-						})}
-					</ul>
 					<form action="">
 						<input
 							className="slug"
@@ -48,9 +36,23 @@ class Topics extends Component {
 							placeholder="give a brief description"
 							onChange={this.handleTopicChange}
 						/>
-
 						<button onClick={this.handleSubmit}>Create!</button>
 					</form>
+					<ul>
+						{topics.map((topic) => {
+							return (
+								<li className="individual-item">
+									<Link
+										to={`/topics/${topic.slug}/articles`}
+										key={topic.slug}
+										className="Link"
+									>
+										{topic.slug}: {topic.description}
+									</Link>
+								</li>
+							);
+						})}
+					</ul>
 				</div>
 			);
 	}

@@ -6,11 +6,18 @@
 	border-right-width: 6px;
 	border-right-style: groove;
 	border-right-color: green;
-	background-color: white;
+	background-color: lightseagreen;
 }
 
 .SideBar-items {
 	background-color: aliceblue;
+}
+
+.sidebar-text {
+	width: 80%;
+	height: 60px;
+	display: flex;
+	flex-wrap: auto;
 }
 .topic-table {
 	width: 100%;
