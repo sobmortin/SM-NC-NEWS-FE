@@ -12,7 +12,6 @@ import Home from './Components/Home';
 import {Router} from '@reach/router';
 import IndividualArticle from './Components/IndividualArticle';
 import Header from './Components/Header';
-import Footer from './Components/Footer';
 import Sidebar from './Components/Sidebar';
 import Topics from './Components/Topics';
 import Auth from './Components/Auth';
@@ -42,6 +41,7 @@ class App extends Component {
 					login={this.setUser}
 					logout={this.clearUser}
 					user={this.state.user}
+					className="Main"
 				>
 					<Router className="Main">
 						<Home path="/" user={this.state.user} />
@@ -61,7 +61,6 @@ class App extends Component {
 						/>
 						<NoMatch default />
 					</Router>
-					<Footer />
 				</Auth>
 			</div>
 		);

@@ -17,6 +17,7 @@ class WriteArticle extends Component {
 
 	render() {
 		const {added, existingTopics} = this.state;
+		console.log('this one', existingTopics[0]);
 		if (added) return <p>Article added! Go to articles to view it</p>;
 		else
 			return (
@@ -32,15 +33,19 @@ class WriteArticle extends Component {
 							onChange={this.handleTitleChange}
 						/>
 						<p>Topic</p>
-						<select className="topic-selector">
-							{existingTopics.map((topic) => {
-								return (
-									<option key={topic.slug} value={topic.slug}>
-										{topic.slug}
-									</option>
-								);
-							})}
+
+						<select
+							// className="topic-selector"
+							onChange={this.handleTopicChange}
+						>
+							{existingTopics.map(
+								(topic) => console.log(topic[0])
+								// return (
+								// 	<option key={topic.slug}>{topic.slug}</option>
+								// )
+							)}
 						</select>
+
 						<p>Article</p>
 						<textarea
 							required
@@ -79,6 +84,7 @@ class WriteArticle extends Component {
 			this.setState({added: true});
 		});
 	};
+
 	getTopics = () => {
 		fetchTopics().then(({data}) => {
 			this.setState({existingTopics: [data.topics]});

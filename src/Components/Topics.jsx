@@ -41,7 +41,7 @@ class Topics extends Component {
 					<ul>
 						{topics.map((topic) => {
 							return (
-								<li className="individual-item">
+								<li key={topic.slug} className="individual-item">
 									<Link
 										to={`/topics/${topic.slug}/articles`}
 										key={topic.slug}
