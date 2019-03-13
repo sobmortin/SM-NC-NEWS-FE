@@ -18,7 +18,8 @@ class Auth extends Component {
 					<button type="submit" onClick={this.handleSubmit}>
 						Log in
 					</button>
-					<p>Please use happyamy2016 for testing</p>
+					<p> </p>
+					<p>Please log in with happyamy2016 for testing</p>
 				</form>
 			</div>
 		);
