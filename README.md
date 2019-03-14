@@ -3,7 +3,7 @@
 This is the front-end for my NC News project.
 
 link to backend:
-
+https://focused-jepsen-b25f08.netlify.com/
 https://github.com/sobmortin/sm-nc-news
 
 ## Getting Started
