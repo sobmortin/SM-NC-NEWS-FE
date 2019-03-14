@@ -4,6 +4,7 @@ This is the front-end for my NC News project.
 
 link to backend:
 https://focused-jepsen-b25f08.netlify.com/
+link to deployed site:
 https://github.com/sobmortin/sm-nc-news
 
 ## Getting Started
